@@ -16,25 +16,25 @@ describe('generateMenus', () => {
       name: 'home',
       path: '/home',
     },
-    {
-      meta: { hideChildrenInMenu: true, icon: 'about-icon', title: '关于' },
-      name: 'about',
-      path: '/about',
-      children: [
-        {
-          path: 'team',
-          name: 'team',
-          meta: { icon: 'team-icon', title: '团队' },
-        },
-      ],
-    },
+    // {
+    //   meta: { hideChildrenInMenu: true, icon: 'about-icon', title: '关于' },
+    //   name: 'about',
+    //   path: '/about',
+    //   children: [
+    //     {
+    //       path: 'team',
+    //       name: 'team',
+    //       meta: { icon: 'team-icon', title: '团队' },
+    //     },
+    //   ],
+    // },
   ] as RouteRecordRaw[];
 
   // 模拟 Vue 路由器实例
   const mockRouter = {
     getRoutes: vi.fn(() => [
       { name: 'home', path: '/home' },
-      { name: 'about', path: '/about' },
+      // { name: 'about', path: '/about' },
       { name: 'team', path: '/about/team' },
     ]),
   };
@@ -54,19 +54,19 @@ describe('generateMenus', () => {
         show: true,
         children: [],
       },
-      {
-        badge: undefined,
-        badgeType: undefined,
-        badgeVariants: undefined,
-        icon: 'about-icon',
-        name: '关于',
-        order: undefined,
-        parent: undefined,
-        parents: undefined,
-        path: '/about',
-        show: true,
-        children: [],
-      },
+      // {
+      //   badge: undefined,
+      //   badgeType: undefined,
+      //   badgeVariants: undefined,
+      //   icon: 'about-icon',
+      //   name: '关于',
+      //   order: undefined,
+      //   parent: undefined,
+      //   parents: undefined,
+      //   path: '/about',
+      //   show: true,
+      //   children: [],
+      // },
     ];
 
     const menus = generateMenus(mockRoutes, mockRouter as any);

@@ -180,16 +180,16 @@ watch(
         @logout="handleLogout"
       />
     </template>
-    <template #notification>
-      <Notification
-        :dot="showDot"
-        :notifications="notifications"
-        @clear="handleNoticeClear"
-        @read="(item) => item.id && markRead(item.id)"
-        @remove="(item) => item.id && remove(item.id)"
-        @make-all="handleMakeAll"
-      />
-    </template>
+    <!--    <template #notification>-->
+    <!--      <Notification-->
+    <!--        :dot="showDot"-->
+    <!--        :notifications="notifications"-->
+    <!--        @clear="handleNoticeClear"-->
+    <!--        @read="(item) => item.id && markRead(item.id)"-->
+    <!--        @remove="(item) => item.id && remove(item.id)"-->
+    <!--        @make-all="handleMakeAll"-->
+    <!--      />-->
+    <!--    </template>-->
     <template #extra>
       <AuthenticationLoginExpiredModal
         v-model:open="accessStore.loginExpired"
