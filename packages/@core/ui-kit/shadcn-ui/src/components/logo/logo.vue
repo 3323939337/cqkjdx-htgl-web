@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 
 import { VbenAvatar } from '../avatar';
-
+import schoolLogo from './logo.png';
 interface Props {
   /**
    * @zh_CN 是否收起文本
@@ -46,7 +46,7 @@ const props = withDefaults(defineProps<Props>(), {
   collapsed: false,
   href: 'javascript:void 0',
   logoSize: 32,
-  src: '',
+  src: schoolLogo,
   srcDark: '',
   theme: 'light',
   fit: 'cover',
@@ -57,10 +57,11 @@ const props = withDefaults(defineProps<Props>(), {
  */
 const logoSrc = computed(() => {
   // 如果是暗色主题且提供了 srcDark，则使用暗色主题的 logo
-  if (props.theme === 'dark' && props.srcDark) {
-    return props.srcDark;
-  }
-  // 否则使用默认的 src
+  // if (props.theme === 'dark' && props.srcDark) {
+  //   return props.srcDark;
+  // }
+  // console.info('src', props.src);
+  // // 否则使用默认的 src
   return props.src;
 });
 </script>
@@ -75,7 +76,7 @@ const logoSrc = computed(() => {
       <VbenAvatar
         v-if="logoSrc"
         :alt="text"
-        :src="logoSrc"
+        :src="schoolLogo"
         :size="logoSize"
         :fit="fit"
         class="relative rounded-none bg-transparent"
@@ -83,7 +84,7 @@ const logoSrc = computed(() => {
       <template v-if="!collapsed">
         <slot name="text">
           <span class="truncate text-nowrap font-semibold text-foreground">
-            {{ text }}
+            {{ '天然气与石油实训平台' }}
           </span>
         </slot>
       </template>
